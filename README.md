@@ -1,2 +1,7 @@
-# tuntematon2017
-Tuntematon Casting 2017
+# tuntematon 2017
+
+## Client
+
+Start webpack dev server with `npm start`.
+
+Build release with `./build.sh`.
