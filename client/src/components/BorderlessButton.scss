@@ -1,0 +1,22 @@
+@import "bourbon";
+@import "../colors";
+
+.borderless-button {
+	position: absolute;
+
+	background: transparent;
+	border: none;
+
+	font-size: 2rem;
+	text-transform: uppercase;
+
+    &.borderless-button-hidden {
+    	visibility: hidden;
+    }
+
+    &:hover {
+    	color: $color-brand;
+    }
+
+    @include transition(color .5s);
+}

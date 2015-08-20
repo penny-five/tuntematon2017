@@ -1,0 +1,57 @@
+@import "bourbon";
+@import "neat";
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+@import "colors";
+
+$max-width: 800px; // override container width from Neat
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    background: white;
+}
+
+.content {
+    @include outer-container();
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-style: italic;
+
+    color: $color-text-dark;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+
+    color: $color-text-dark;
+}
+
+p {
+    @include margin(5px null);
+}
+
+.name {
+    font-size: 1.5rem;
+    color: $color-text-dark;
+}
+
+.description {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: $color-text-medium;
+}
+

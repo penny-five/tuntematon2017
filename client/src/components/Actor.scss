@@ -1,0 +1,19 @@
+@import "../colors";
+
+.actor {
+    display: inline-block;
+
+    width: 100px;
+    padding-bottom: 20px;
+
+    list-style: none;
+    text-align: center;
+
+    .name {
+        padding: 2px 10px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
