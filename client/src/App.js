@@ -15,6 +15,11 @@ class App extends Component {
 
     render() {
         let { actors, roles, activeRoleIndex } = this.props;
+        if (activeRoleIndex == roles.length) {
+            return (
+                <div>Roolitus: suoritettu</div>
+            );
+        }
         let casting = new Casting(this.props.casting, actors, roles);
         let activeRole = roles[activeRoleIndex];
         let activeRoleActor = casting.getActorCastToRole(activeRole);
