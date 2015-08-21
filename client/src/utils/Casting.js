@@ -9,15 +9,12 @@ export default class Casting {
 
     isActorCast(actor) {
         let actorId = typeof actor == 'object' ? actor.id : actor;
-        for (let roleId in this.casting) {
-            if (this.casting[roleId] == actorId) return true;
-        }
-        return false;
+        return Object.values(this.casting).indexOf(actorId) > -1;
     }
 
     isActorCastToRole(actor, role) {
-        let actorId = typeof actor == 'object' ? actor.id : actor;
-        let roleId = typeof role == 'object' ? role.id : role;
+        const actorId = typeof actor == 'object' ? actor.id : actor;
+        const roleId = typeof role == 'object' ? role.id : role;
         return this.casting[roleId] == actorId;
     }
 
@@ -26,9 +23,8 @@ export default class Casting {
     }
 
     getActorCastToRole(role) {
-        let roleId = typeof role == 'object' ? role.id : role;
-        let actorId = this.casting[roleId];
+        const roleId = typeof role == 'object' ? role.id : role;
+        const actorId = this.casting[roleId];
         return actorId != null ? this.actors.find(actor => actor.id == actorId) : null;
     }
-
 }
