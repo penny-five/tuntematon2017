@@ -1,3 +1,4 @@
+@import "bourbon";
 @import "../colors";
 
 .avatar {
@@ -8,11 +9,12 @@
 
     margin: 0 auto;
 
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 50%;
 
     .overlay {
         position: absolute;
+        z-index: 1;
         width: 100%;
         height: 100%;
         border-radius: 50%;
@@ -22,21 +24,29 @@
         width: 100%;
         height: 100%;
 
+        border-radius: 50%;
         object-fit: cover;
+
+        @include transition(opacity .3s ease-out);
+    }
+
+    img:nth-child(2) {
+        position: absolute;
     }
 
     &.avatar-large {
-        width: 150px;
-        height: 150px;
+        width: 165px;
+        height: 165px;
     }
 
     &.avatar-is-selected {
-        border: 1px solid $color-brand;
+        border: 2px solid $color-brand;
     }
 
     &.avatar-is-disabled {
         .overlay {
             background: rgba(white, 0.75);
+            @include transition(background .2s ease-out);
         }
     }
 }

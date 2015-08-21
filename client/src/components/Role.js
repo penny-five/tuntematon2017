@@ -10,7 +10,7 @@ export default class Role extends Component {
         const {role, actor} = this.props;
         return (
             <div className="role">
-                <Avatar src={actor ? actor.avatar : role.avatar} />
+                <Avatar src={actor ? actor.avatar : role.avatar} size='large' />
                 <p>{actor ? `${actor.name} on` : 'Valitse näyttelijä rooliin'}</p>
                 <p className="name">{role.name}</p>
             </div>

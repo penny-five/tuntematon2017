@@ -24,11 +24,18 @@ class App extends Component {
         let activeRole = roles[activeRoleIndex];
         let activeRoleActor = casting.getActorCastToRole(activeRole);
         return (
-            <div className="content">
-                <BorderlessButton style={{right: 0}} visible={activeRoleActor != null} text="Seuraava" onClick={() => this.confirmRole()} />
-                <h2>Valitse rooli {activeRoleIndex + 1} / {this.props.roles.length}</h2>
-                {this.renderRole(activeRole, activeRoleActor)}
-                {this.renderActorList(actors, activeRole, casting)}
+            <div>
+                <div className="top-wrapper">
+                    <div className="top-container">
+                        <h1><mark>Tuntematon 2017</mark> casting</h1>
+                        <BorderlessButton style={{right: 0}} visible={activeRoleActor != null} text="Seuraava" onClick={() => this.confirmRole()} />
+                        <h2>Valitse rooli {activeRoleIndex + 1} / {this.props.roles.length}</h2>
+                        {this.renderRole(activeRole, activeRoleActor)}
+                    </div>
+                </div>
+                <div className="bottom-container">
+                    {this.renderActorList(actors, activeRole, casting)}
+                </div>
             </div>
         );
     }

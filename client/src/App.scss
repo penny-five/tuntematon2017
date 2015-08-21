@@ -2,6 +2,7 @@
 @import "neat";
 
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
 
 @import "colors";
 
@@ -15,19 +16,15 @@ body {
     font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
-    background: white;
-}
-
-.content {
-    @include outer-container();
-    position: relative;
+    background: $color-background;
 }
 
 h1 {
     text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
-    font-style: italic;
 
     color: $color-text-dark;
 }
@@ -42,6 +39,24 @@ h2 {
 
 p {
     @include margin(5px null);
+}
+
+mark {
+    color: $color-brand;
+    background: transparent;
+}
+
+blockquote {
+    color: $color-brand;
+}
+
+.top-wrapper {
+    background: $color-background-shade;
+}
+
+.top-container, .bottom-container {
+    @include outer-container();
+    position: relative;
 }
 
 .name {

@@ -1,4 +1,7 @@
-$color-brand: #3C67CC;
+$color-background: white;
+$color-background-shade: darken($color-background, 2%);
+
+$color-brand: #0076a3;
 $color-brand-dark: darken($color-brand, 15%);
 
 $color-border-light: #D6D6D6;
