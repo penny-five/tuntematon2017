@@ -1,6 +1,10 @@
 /* global __DEVTOOLS__ */
 
+import 'normalize.css';
 import 'babel-core/polyfill';
+import 'font-awesome-webpack';
+import 'object-fit/dist/polyfill.object-fit';
+
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
