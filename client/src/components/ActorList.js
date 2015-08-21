@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 import Actor from './Actor';
+import Casting from '../utils/Casting';
 
 import './ActorList.scss';
 
@@ -16,13 +17,14 @@ export default class ActorList {
 
     renderActor(actor) {
         let { casting, activeRole, onActorSelected } = this.props;
-        let isCast = casting.isActorCast(actor);
         let isCastToActiveRole = casting.isActorCastToRole(actor, activeRole);
+        let isCastToAnotherRole = !isCastToActiveRole && casting.isActorCast(actor); 
+
         return (
             <Actor
                 key={actor.id}
                 actor={actor}
-                isCast={isCast}
+                isEnabled={!isCastToAnotherRole}
                 isSelected={isCastToActiveRole}
                 onSelected={() => onActorSelected(actor.id)} />
         );
@@ -31,7 +33,7 @@ export default class ActorList {
 }
 
 ActorList.propTypes = {
-    actors: PropTypes.array.isRequired,
+    actors: PropTypes.arrayOf(PropTypes.object).isRequired,
     casting: PropTypes.object.isRequired,
     activeRole: PropTypes.object.isRequired,
     onActorSelected: PropTypes.func.isRequired

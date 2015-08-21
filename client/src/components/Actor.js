@@ -8,11 +8,16 @@ import './Actor.scss';
 export default class Actor extends Component {
 
     render() {
-        let { actor, isSelected, onSelected } = this.props;
-        let classes = classNames('actor', { 'actor-is-selected': isSelected });
+        let { actor, isEnabled, isSelected, onSelected } = this.props;
+        let classes = classNames('actor', { 'actor-is-selected': isEnabled && isSelected });
         return (
-            <li className={classes} onClick={onSelected}>
-                <Avatar src={actor.avatar} size="small" isSelected={isSelected} />
+            <li className={classes}>
+                <Avatar
+                    src={actor.avatar}
+                    size="small"
+                    isSelected={isEnabled && isSelected}
+                    isEnabled={isEnabled}
+                    onClick={onSelected} />
                 <div className="name">{actor.name}</div>
             </li>
         );
@@ -22,7 +27,12 @@ export default class Actor extends Component {
 
 Actor.propTypes = {
     actor: PropTypes.object.isRequired,
-    isCast: PropTypes.bool.isRequired,
-    isSelected: PropTypes.bool.isRequired,
+    isEnabled: PropTypes.bool,
+    isSelected: PropTypes.bool,
     onSelected: PropTypes.func.isRequired
+};
+
+Actor.defaultProps = {
+    isEnabled: true,
+    isSelected: false
 };
